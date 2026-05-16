@@ -1,6 +1,6 @@
 # CLAUDE.md 지침 및 task 로그 시스템 도입
 
-> 날짜: 2026-05-17 · 커밋: TBD (이 작업 자체의 커밋 해시)
+> 날짜: 2026-05-17 · 커밋: [87c0a76](https://github.com/ccomajeon/focus-companion/commit/87c0a76)
 
 ## Context
 
