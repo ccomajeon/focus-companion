@@ -1,3 +1,4 @@
+/* Widget/Done legacy palette (do not change — used by the floating widget). */
 :root {
   --coral: #CC785C;
   --coral-soft: #E89F87;
@@ -12,9 +13,72 @@
 
   --font-serif: 'Source Serif 4', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+}
+
+/* ------------------------------------------------------------------
+ * Launcher theme — Linear / Geist inspired
+ * Scoped under .launcher-theme-dark / .launcher-theme-light to avoid
+ * leaking into the Widget/Done views.
+ * ------------------------------------------------------------------ */
+
+.launcher-theme-dark {
+  --lc-bg: #0E0E11;
+  --lc-bg-elevated: #15151A;
+  --lc-bg-input: #15151A;
+  --lc-bg-input-focus: #1A1A20;
+  --lc-bg-header: #08080B;
+  --lc-bg-accent-soft: rgba(91, 108, 255, 0.12);
+
+  --lc-border: #25252D;
+  --lc-border-strong: #1F1F25;
+  --lc-border-focus: #5B6CFF;
+
+  --lc-text: #FFFFFF;
+  --lc-text-muted: #A6A6B0;
+  --lc-text-dim: #6E6E78;
+  --lc-text-placeholder: #4A4A55;
+
+  --lc-accent: #5B6CFF;
+  --lc-accent-hover: #7280FF;
+  --lc-accent-fg: #FFFFFF;
+  --lc-accent-glow: rgba(91, 108, 255, 0.35);
+
+  --lc-tile-bg: #15151A;
+  --lc-tile-bg-on: rgba(91, 108, 255, 0.12);
+
+  --lc-shadow-btn: 0 4px 14px rgba(91, 108, 255, 0.3);
+}
+
+.launcher-theme-light {
+  --lc-bg: #FAFAFB;
+  --lc-bg-elevated: #FFFFFF;
+  --lc-bg-input: #FFFFFF;
+  --lc-bg-input-focus: #FFFFFF;
+  --lc-bg-header: #F4F4F6;
+  --lc-bg-accent-soft: rgba(74, 91, 229, 0.08);
+
+  --lc-border: #E4E4E9;
+  --lc-border-strong: #ECECF0;
+  --lc-border-focus: #4A5BE5;
+
+  --lc-text: #0E0E11;
+  --lc-text-muted: #4A4A55;
+  --lc-text-dim: #6E6E78;
+  --lc-text-placeholder: #B4B4BB;
+
+  --lc-accent: #4A5BE5;
+  --lc-accent-hover: #3D4ED9;
+  --lc-accent-fg: #FFFFFF;
+  --lc-accent-glow: rgba(74, 91, 229, 0.25);
+
+  --lc-tile-bg: #FFFFFF;
+  --lc-tile-bg-on: rgba(74, 91, 229, 0.08);
+
+  --lc-shadow-btn: 0 4px 14px rgba(74, 91, 229, 0.22);
 }

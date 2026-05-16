@@ -1,33 +1,43 @@
-.duration-picker { display: flex; flex-direction: column; gap: 10px; }
+.duration-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .preset-row {
-  display: flex;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
 }
 
 .preset {
-  flex: 1;
   padding: 9px 0;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
-  color: var(--muted-brown);
-  background: #FFFFFF;
-  border: 1px solid var(--hairline);
+  color: var(--lc-text-muted);
+  background: var(--lc-bg-input);
+  border: 1px solid var(--lc-border);
   border-radius: var(--radius-sm);
-  transition: all 0.15s;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
 }
 
-.preset:hover { border-color: var(--coral); color: var(--coral); }
+.preset:hover {
+  border-color: var(--lc-text-dim);
+  color: var(--lc-text);
+}
 
 .preset.active {
-  background: var(--coral);
-  color: #FFFFFF;
-  border-color: var(--coral);
+  background: var(--lc-accent);
+  color: var(--lc-accent-fg);
+  border-color: var(--lc-accent);
   font-weight: 600;
 }
 
 .custom-toggle {
-  flex: 0 0 36px;
+  font-family: var(--font-sans);
   letter-spacing: 1px;
 }
 
@@ -35,28 +45,42 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #FFFFFF;
-  border: 1px solid var(--hairline);
+  background: var(--lc-bg-input);
+  border: 1px solid var(--lc-border);
   border-radius: var(--radius-sm);
-  padding: 6px 12px;
+  padding: 4px 12px;
+  transition: border-color 0.15s;
+}
+
+.custom-row:focus-within {
+  border-color: var(--lc-border-focus);
 }
 
 .custom-input {
   flex: 1;
   border: none;
   background: transparent;
-  font-size: 14px;
-  color: var(--charcoal);
-  padding: 4px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--lc-text);
+  padding: 6px 0;
+  font-variant-numeric: tabular-nums;
   -moz-appearance: textfield;
 }
 
+.custom-input::placeholder { color: var(--lc-text-placeholder); }
+
 .custom-input::-webkit-outer-spin-button,
-.custom-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.custom-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-input:focus { outline: none; }
 
 .unit {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--soft-brown);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--lc-text-dim);
+  letter-spacing: 0.3px;
 }

@@ -6,6 +6,8 @@ export type Phase = 'running' | 'paused' | 'done';
 
 export type Facing = 'left' | 'right';
 
+export type ThemeMode = 'dark' | 'light';
+
 export interface SessionConfig {
   taskName: string;
   durationMin: number;
@@ -19,6 +21,7 @@ export interface FocusApi {
     lastDurationMin: number;
     lastImportance: Importance;
     lastCharacter: CharacterId;
+    themeMode: ThemeMode;
     widgetPos: { x: number; y: number; width: number; height: number } | null;
     widgetSize: { width: number; height: number };
   }>;

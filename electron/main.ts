@@ -33,13 +33,16 @@ function createLauncher() {
     return;
   }
 
+  const savedTheme = store.get('themeMode') ?? 'dark';
+  const initialBg = savedTheme === 'light' ? '#FAFAFB' : '#0E0E11';
+
   launcherWin = new BrowserWindow({
     width: 360,
-    height: 600,
+    height: 620,
     frame: false,
     resizable: false,
     transparent: false,
-    backgroundColor: '#F5F1E8',
+    backgroundColor: initialBg,
     alwaysOnTop: false,
     show: false,
     webPreferences: {
