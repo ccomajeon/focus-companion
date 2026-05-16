@@ -1,0 +1,32 @@
+.dots {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  padding: 0;
+  background: rgba(204, 120, 92, 0.2);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  cursor: default;
+}
+
+.dots.sm .dot { width: 5px; height: 5px; }
+
+.dots .dot.on {
+  background: var(--coral);
+  box-shadow: 0 0 6px rgba(204, 120, 92, 0.7);
+}
+
+.dots.interactive .dot {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+.dots.interactive .dot.on { box-shadow: 0 0 8px rgba(204, 120, 92, 0.5); }
+
+.dots.interactive .dot:hover { transform: scale(1.15); }

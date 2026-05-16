@@ -1,0 +1,8 @@
+{
+  "name": "focus-companion",
+  "version": "0.1.0",
+  "description": "Floating desktop focus timer with a pixel-art pet (Claw'd / Catto / Pup / Bunny) that turns left and right while counting down, with speech bubbles showing the current task.",
+  "author": "junyoung",
+  "keywords": ["focus", "timer", "pomodoro", "desktop pet", "claw'd", "pixel art", "productivity"],
+  "homepage": "https://github.com/junyoung/focus-companion"
+}

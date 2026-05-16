@@ -1,0 +1,20 @@
+:root {
+  --coral: #CC785C;
+  --coral-soft: #E89F87;
+  --coral-glow-soft: rgba(204, 120, 92, 0.5);
+  --coral-glow-strong: rgba(232, 159, 135, 0.9);
+  --cream: #F5F1E8;
+  --cream-warm: #FBF6EC;
+  --charcoal: #2B2B2B;
+  --soft-brown: #8B6F47;
+  --muted-brown: #6B5D4F;
+  --hairline: rgba(139, 111, 71, 0.2);
+
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}

@@ -1,0 +1,35 @@
+.control-bar {
+  -webkit-app-region: no-drag;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  padding: 6px 8px;
+  background: rgba(43, 43, 43, 0.55);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.widget-stage:hover .control-bar {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ctrl {
+  -webkit-app-region: no-drag;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  background: transparent;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+.ctrl:hover { background: rgba(255, 255, 255, 0.12); }
+.ctrl:active { transform: scale(0.92); }
+.ctrl.danger:hover { background: rgba(204, 120, 92, 0.45); color: #FFFFFF; }

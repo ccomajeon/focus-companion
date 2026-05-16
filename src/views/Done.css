@@ -1,0 +1,113 @@
+.done-stage {
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 22px 12px 14px;
+  position: relative;
+}
+
+.done-character {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.done-bubble {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  color: var(--charcoal);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid var(--charcoal);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+
+.done-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 8px solid var(--charcoal);
+}
+
+.done-meta {
+  margin-top: 6px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+.done-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #B8D196;
+}
+
+.done-title {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.done-sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(245, 241, 232, 0.85);
+  margin-top: 4px;
+}
+
+.done-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  padding: 0 6px;
+}
+
+.action {
+  -webkit-app-region: no-drag;
+  flex: 1;
+  padding: 9px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  backdrop-filter: blur(10px);
+  transition: background 0.15s, transform 0.1s;
+}
+
+.action.primary {
+  background: var(--coral);
+  color: #FFFFFF;
+}
+.action.primary:hover { background: #B96A50; }
+
+.action.ghost {
+  background: rgba(43, 43, 43, 0.6);
+  color: var(--cream);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.action.ghost:hover { background: rgba(43, 43, 43, 0.75); }
+
+.action:active { transform: scale(0.97); }
