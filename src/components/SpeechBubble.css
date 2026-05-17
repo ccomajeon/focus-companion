@@ -28,15 +28,6 @@
   color: var(--coral);
 }
 
-.bubble-prefix {
-  font-family: var(--font-bubble);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 10px;
-  color: var(--soft-brown);
-  letter-spacing: 0;
-}
-
 .bubble-text {
   display: inline-block;
   max-width: 180px;

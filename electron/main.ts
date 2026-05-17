@@ -8,7 +8,6 @@ const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist');
 const PRELOAD = path.join(__dirname, 'preload.js');
 
 const ASPECT_RATIO = 130 / 180;
-const MINIMIZED_SIZE = { width: 80, height: 80 };
 
 let launcherWin: BrowserWindow | null = null;
 let widgetWin: BrowserWindow | null = null;
@@ -155,17 +154,6 @@ ipcMain.handle('session:done', (_evt, payload: { taskName: string }) => {
       body: payload.taskName ? `${payload.taskName} — 잘 했어요` : '잘 했어요',
       silent: false,
     }).show();
-  }
-});
-
-ipcMain.handle('widget:setMinimized', (_evt, minimized: boolean) => {
-  if (!widgetWin || widgetWin.isDestroyed()) return;
-  const b = widgetWin.getBounds();
-  if (minimized) {
-    widgetWin.setBounds({ x: b.x, y: b.y, ...MINIMIZED_SIZE });
-  } else {
-    const stored = store.get('widgetSize') ?? { width: 130, height: 180 };
-    widgetWin.setBounds({ x: b.x, y: b.y, ...stored });
   }
 });
 

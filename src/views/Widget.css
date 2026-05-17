@@ -11,12 +11,6 @@
   overflow: visible;
 }
 
-.widget-stage.minimized {
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-}
-
 .bubble-slot {
   display: flex;
   justify-content: center;
@@ -72,65 +66,6 @@
   background: rgba(255, 255, 255, 0.22);
   box-shadow: none;
 }
-
-.widget-stage.minimized .control-slot { display: none; }
-
-/* Restore chip — small button that appears on hover when minimized */
-.restore-chip {
-  -webkit-app-region: no-drag;
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(20, 20, 20, 0.85);
-  color: #FFFFFF;
-  font-family: var(--font-bubble);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.1s;
-  cursor: pointer;
-  padding: 0;
-}
-
-.widget-stage.minimized:hover .restore-chip {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.restore-chip:hover { background: rgba(40, 40, 40, 0.95); }
-.restore-chip:active { transform: scale(0.92); }
-
-/* Reuse the ::after tooltip pattern from ControlBar */
-.restore-chip[data-tip]::after {
-  content: attr(data-tip);
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  background: rgba(20, 20, 20, 0.92);
-  color: #FFFFFF;
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-family: var(--font-bubble);
-  font-size: 10px;
-  font-weight: 500;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-  z-index: 10;
-}
-
-.restore-chip:hover::after { opacity: 1; }
 
 .size-hint {
   position: absolute;

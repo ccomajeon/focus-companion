@@ -4,10 +4,10 @@ interface Props {
   paused: boolean;
   onPauseToggle: () => void;
   onCancel: () => void;
-  onMinimize: () => void;
+  onReset: () => void;
 }
 
-export default function ControlBar({ paused, onPauseToggle, onCancel, onMinimize }: Props) {
+export default function ControlBar({ paused, onPauseToggle, onCancel, onReset }: Props) {
   return (
     <div className="control-bar">
       <button
@@ -24,11 +24,14 @@ export default function ControlBar({ paused, onPauseToggle, onCancel, onMinimize
       </button>
       <button
         className="ctrl"
-        onClick={onMinimize}
-        aria-label="최소화"
-        data-tip="최소화"
+        onClick={onReset}
+        aria-label="재설정"
+        data-tip="재설정"
       >
-        <svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 12a9 9 0 1 1-3.36-7" />
+          <path d="M21 4v6h-6" />
+        </svg>
       </button>
       <button
         className="ctrl danger"

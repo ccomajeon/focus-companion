@@ -34,7 +34,6 @@ export interface FocusApi {
   }) => Promise<void>;
   cancelSession: () => Promise<void>;
   notifyDone: (payload: { taskName: string }) => Promise<void>;
-  setMinimized: (minimized: boolean) => Promise<void>;
   startNewSession: () => Promise<void>;
   resizeBy: (deltaPx: number) => Promise<{ width: number; height: number } | null>;
 }

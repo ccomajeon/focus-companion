@@ -3,47 +3,75 @@ import { useEffect, useRef, useState } from 'react';
 interface Options {
   durationSec: number;
   paused: boolean;
+  /** Increment to force a reset back to full durationSec. */
+  resetSignal?: number;
   onComplete?: () => void;
 }
 
-export function useCountdown({ durationSec, paused, onComplete }: Options) {
+/**
+ * Countdown timer based on an absolute endAt timestamp (not a decrementing
+ * counter) so the displayed remaining time always reflects wall-clock truth
+ * and recovers correctly from setting changes / hot reloads.
+ *
+ * Pause works by recording when paused started, then sliding endAt forward
+ * by the paused duration on resume.
+ */
+export function useCountdown({
+  durationSec,
+  paused,
+  resetSignal = 0,
+  onComplete,
+}: Options) {
   const [remaining, setRemaining] = useState(durationSec);
-  const endAtRef = useRef<number | null>(null);
+  const endAtRef = useRef<number>(Date.now() + durationSec * 1000);
+  const pausedAtRef = useRef<number | null>(null);
   const completedRef = useRef(false);
+  const onCompleteRef = useRef(onComplete);
 
-  // Reset when duration changes
+  // Keep latest onComplete in a ref so we don't restart the loop just because
+  // the callback identity changed.
   useEffect(() => {
-    setRemaining(durationSec);
-    endAtRef.current = null;
-    completedRef.current = false;
-  }, [durationSec]);
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
+  // Reset on duration change or explicit reset signal.
+  useEffect(() => {
+    endAtRef.current = Date.now() + durationSec * 1000;
+    pausedAtRef.current = paused ? Date.now() : null;
+    completedRef.current = false;
+    setRemaining(durationSec);
+    // intentionally not listing `paused` — it's read once at reset time
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [durationSec, resetSignal]);
+
+  // Pause / resume: shift endAt forward by the time spent paused.
   useEffect(() => {
     if (paused) {
-      // freeze: remember current remaining; clear endAt
-      endAtRef.current = null;
-      return;
+      pausedAtRef.current = Date.now();
+    } else if (pausedAtRef.current != null) {
+      const pausedDurationMs = Date.now() - pausedAtRef.current;
+      endAtRef.current += pausedDurationMs;
+      pausedAtRef.current = null;
     }
-    if (completedRef.current) return;
+  }, [paused]);
 
-    endAtRef.current = Date.now() + remaining * 1000;
+  // Tick loop.
+  useEffect(() => {
+    if (paused || completedRef.current) return;
 
     const tick = () => {
-      if (endAtRef.current == null) return;
       const left = Math.max(0, Math.round((endAtRef.current - Date.now()) / 1000));
       setRemaining(left);
       if (left <= 0 && !completedRef.current) {
         completedRef.current = true;
-        onComplete?.();
+        onCompleteRef.current?.();
       }
     };
 
     tick();
     const id = window.setInterval(tick, 250);
     return () => window.clearInterval(id);
-    // intentionally not depending on remaining to avoid resetting endAt each tick
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused]);
+  }, [paused, durationSec, resetSignal]);
 
   return remaining;
 }

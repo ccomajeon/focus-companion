@@ -23,8 +23,6 @@ const api = {
   cancelSession: () => ipcRenderer.invoke('session:cancel') as Promise<void>,
   notifyDone: (payload: { taskName: string }) =>
     ipcRenderer.invoke('session:done', payload) as Promise<void>,
-  setMinimized: (minimized: boolean) =>
-    ipcRenderer.invoke('widget:setMinimized', minimized) as Promise<void>,
   startNewSession: () => ipcRenderer.invoke('widget:newSession') as Promise<void>,
   resizeBy: (deltaPx: number) =>
     ipcRenderer.invoke('widget:resizeBy', deltaPx) as Promise<{ width: number; height: number } | null>,

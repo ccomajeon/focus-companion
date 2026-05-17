@@ -8,6 +8,7 @@
 
 | 날짜 | 제목 | 파일 |
 |---|---|---|
+| 2026-05-17 | "지금" 제거 · 최소화 → 재설정 교체 · 60분 타이머 버그 수정 | [2026-05-17-reset-and-timer-fix.md](2026-05-17-reset-and-timer-fix.md) |
 | 2026-05-17 | 컨트롤 버튼 툴팁 + 최소화 상태 복원 칩 | [2026-05-17-control-tooltips-and-restore.md](2026-05-17-control-tooltips-and-restore.md) |
 | 2026-05-17 | 말풍선 글꼴을 맑은 고딕으로 통일 | [2026-05-17-bubble-font-malgun.md](2026-05-17-bubble-font-malgun.md) |
 | 2026-05-17 | CLAUDE.md 지침 및 task 로그 시스템 도입 | [2026-05-17-claude-md-setup.md](2026-05-17-claude-md-setup.md) |

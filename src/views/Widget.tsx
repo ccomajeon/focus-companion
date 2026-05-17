@@ -19,7 +19,7 @@ export default function Widget({ onComplete }: Props) {
   const [taskName, setTaskName] = useState('');
   const [characterId, setCharacterId] = useState<string>('clawd');
   const [paused, setPaused] = useState(false);
-  const [minimized, setMinimized] = useState(false);
+  const [resetSignal, setResetSignal] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [winWidth, setWinWidth] = useState<number>(() => window.innerWidth);
   const [showSizeHint, setShowSizeHint] = useState(false);
@@ -44,6 +44,7 @@ export default function Widget({ onComplete }: Props) {
   const remaining = useCountdown({
     durationSec,
     paused: paused || !loaded,
+    resetSignal,
     onComplete: () => {
       window.focusApp.notifyDone({ taskName }).catch(() => undefined);
       onComplete();
@@ -54,7 +55,7 @@ export default function Widget({ onComplete }: Props) {
   const phase = paused ? 'paused' : 'running';
 
   const { facing, walking } = useTurnInPlace({
-    enabled: !paused && !minimized && loaded,
+    enabled: !paused && loaded,
   });
 
   useEffect(() => {
@@ -76,41 +77,15 @@ export default function Widget({ onComplete }: Props) {
 
   const togglePause = () => setPaused((p) => !p);
   const cancel = () => window.focusApp.cancelSession();
-  const toggleMinimize = () => {
-    const next = !minimized;
-    setMinimized(next);
-    window.focusApp.setMinimized(next);
+  const reset = () => {
+    setPaused(false);
+    setResetSignal((s) => s + 1);
   };
 
   const characterSize = Math.round(winWidth * 0.55);
   const timerFontPx = Math.round(winWidth * 0.16);
   const labelFontPx = Math.max(7, Math.round(winWidth * 0.055));
   const character = getCharacter(characterId);
-
-  if (minimized) {
-    return (
-      <div className="widget-stage minimized" onDoubleClick={toggleMinimize}>
-        <PixelPet
-          character={character}
-          importance={importance}
-          phase={phase}
-          size={Math.min(72, winWidth - 8)}
-          draggable
-          facing={facing}
-          walking={walking}
-        />
-        <button
-          type="button"
-          className="restore-chip"
-          onClick={toggleMinimize}
-          aria-label="펼치기"
-          data-tip="펼치기"
-        >
-          ↗
-        </button>
-      </div>
-    );
-  }
 
   return (
     <div className="widget-stage">
@@ -151,7 +126,7 @@ export default function Widget({ onComplete }: Props) {
           paused={paused}
           onPauseToggle={togglePause}
           onCancel={cancel}
-          onMinimize={toggleMinimize}
+          onReset={reset}
         />
       </div>
 

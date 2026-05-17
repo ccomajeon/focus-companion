@@ -33,8 +33,8 @@ function pickRandom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-const TASK_DISPLAY_MS = 25_000;       // task name shows this long between bursts
-const ENCOURAGE_DISPLAY_MS = 5_000;   // encouragement burst length
+const TASK_DISPLAY_MS = 25_000;
+const ENCOURAGE_DISPLAY_MS = 5_000;
 
 export default function SpeechBubble({
   remainingSec,
@@ -45,7 +45,6 @@ export default function SpeechBubble({
   const [mode, setMode] = useState<Mode>('task');
   const [encourageText, setEncourageText] = useState('');
 
-  // Alternate between task name and encouragement messages
   useEffect(() => {
     let timer: number;
     const cycle = (next: Mode) => {
@@ -58,7 +57,6 @@ export default function SpeechBubble({
         timer = window.setTimeout(() => cycle('encourage'), TASK_DISPLAY_MS);
       }
     };
-    // Start showing task name first, then cycle
     timer = window.setTimeout(() => cycle('encourage'), TASK_DISPLAY_MS);
     return () => window.clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,7 +71,6 @@ export default function SpeechBubble({
 
   return (
     <div className={`speech-bubble show ${taskMode ? 'task-mode' : 'encourage-mode'}`} aria-live="polite">
-      {taskMode && <span className="bubble-prefix">지금</span>}
       <span className="bubble-text">{displayText}</span>
     </div>
   );
