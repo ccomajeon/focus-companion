@@ -1,6 +1,6 @@
 # 말풍선 글꼴을 맑은 고딕으로 통일
 
-> 날짜: 2026-05-17 · 커밋: TBD
+> 날짜: 2026-05-17 · 커밋: [28ae6d2](https://github.com/ccomajeon/focus-companion/commit/28ae6d2)
 
 ## Context
 
