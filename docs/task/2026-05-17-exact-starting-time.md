@@ -1,6 +1,6 @@
 # 시작 시각을 설정값과 정확히 일치시키기 (Math.ceil) + npm start 자동 재빌드
 
-> 날짜: 2026-05-17 · 커밋: TBD
+> 날짜: 2026-05-17 · 커밋: [9172022](https://github.com/ccomajeon/focus-companion/commit/9172022)
 
 ## Context
 
