@@ -99,6 +99,15 @@ export default function Widget({ onComplete }: Props) {
           facing={facing}
           walking={walking}
         />
+        <button
+          type="button"
+          className="restore-chip"
+          onClick={toggleMinimize}
+          aria-label="펼치기"
+          data-tip="펼치기"
+        >
+          ↗
+        </button>
       </div>
     );
   }

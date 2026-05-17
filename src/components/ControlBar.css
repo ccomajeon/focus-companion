@@ -20,6 +20,7 @@
 
 .ctrl {
   -webkit-app-region: no-drag;
+  position: relative;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -33,3 +34,49 @@
 .ctrl:hover { background: rgba(255, 255, 255, 0.12); }
 .ctrl:active { transform: scale(0.92); }
 .ctrl.danger:hover { background: rgba(204, 120, 92, 0.45); color: #FFFFFF; }
+
+/* Tooltip — appears above the button on hover */
+.ctrl[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(2px);
+  background: rgba(20, 20, 20, 0.92);
+  color: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-bubble);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+.ctrl[data-tip]::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid rgba(20, 20, 20, 0.92);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+}
+
+.ctrl:hover::after,
+.ctrl:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.ctrl:hover::before { transform: translateX(-50%); }
