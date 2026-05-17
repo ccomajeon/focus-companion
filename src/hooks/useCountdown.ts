@@ -60,7 +60,10 @@ export function useCountdown({
     if (paused || completedRef.current) return;
 
     const tick = () => {
-      const left = Math.max(0, Math.round((endAtRef.current - Date.now()) / 1000));
+      // ceil so the user sees the exact starting value (e.g. set 60m → first
+      // frame is 60:00, not 59:59 due to the few ms it took to reach this tick).
+      // Each displayed integer then lasts a full wall-clock second.
+      const left = Math.max(0, Math.ceil((endAtRef.current - Date.now()) / 1000));
       setRemaining(left);
       if (left <= 0 && !completedRef.current) {
         completedRef.current = true;
