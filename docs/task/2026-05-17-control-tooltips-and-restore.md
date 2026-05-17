@@ -1,6 +1,6 @@
 # 컨트롤 버튼 툴팁 + 최소화 상태 복원 칩
 
-> 날짜: 2026-05-17 · 커밋: TBD
+> 날짜: 2026-05-17 · 커밋: [d0520cd](https://github.com/ccomajeon/focus-companion/commit/d0520cd)
 
 ## Context
 
