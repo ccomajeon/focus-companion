@@ -1,6 +1,6 @@
 # "지금" 제거 · 최소화 → 재설정 교체 · 60분 타이머 버그 수정
 
-> 날짜: 2026-05-17 · 커밋: TBD
+> 날짜: 2026-05-17 · 커밋: [57b3e51](https://github.com/ccomajeon/focus-companion/commit/57b3e51)
 
 ## Context
 
