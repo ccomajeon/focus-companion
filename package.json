@@ -1,6 +1,6 @@
 {
   "name": "focus-companion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Desktop focus timer with the Claude sparkle floating on your desktop",
   "author": "junyoung",
   "main": "dist-electron/main.js",

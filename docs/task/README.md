@@ -8,6 +8,7 @@
 
 | 날짜 | 제목 | 파일 |
 |---|---|---|
+| 2026-05-17 | Release v0.1.1 — 누적 변경분을 새 portable .exe로 배포 | [2026-05-17-release-v0.1.1.md](2026-05-17-release-v0.1.1.md) |
 | 2026-05-17 | 시작 시각 정확히 일치 (Math.ceil) + npm start 자동 재빌드 | [2026-05-17-exact-starting-time.md](2026-05-17-exact-starting-time.md) |
 | 2026-05-17 | "지금" 제거 · 최소화 → 재설정 교체 · 60분 타이머 버그 수정 | [2026-05-17-reset-and-timer-fix.md](2026-05-17-reset-and-timer-fix.md) |
 | 2026-05-17 | 컨트롤 버튼 툴팁 + 최소화 상태 복원 칩 | [2026-05-17-control-tooltips-and-restore.md](2026-05-17-control-tooltips-and-restore.md) |
